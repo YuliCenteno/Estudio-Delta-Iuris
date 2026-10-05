@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: YuliCenteno/Estudio-Delta-Iuris # Nombre exacto de tu repositorio en GitHub
+  repo: YuliCenteno/Estudio-Delta-Iuris
   branch: main
   base_url: https://silly-kleicha-bf6d69.netlify.app
-  auth_endpoint: ""
+  auth_endpoint: /.netlify/functions/auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
