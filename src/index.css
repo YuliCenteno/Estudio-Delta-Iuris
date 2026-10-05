@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fondo Warm Cream (Lino / Marfil elegante) */
+    --background: 38 33% 96%; /* #FAF7F2 */
+    --foreground: 24 8% 15%; /* #2C2825 - Grafito Cálido */
+
+    /* Grafito oscuro como primario */
+    --primary: 24 8% 15%; /* #2C2825 */
+    --primary-foreground: 38 33% 96%;
+
+    /* Marrón/Café como tono secundario */
+    --secondary: 25 39% 39%; /* #8C5E3C */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Acento Cobre / Café Cálido */
+    --accent: 25 39% 39%; /* #8C5E3C */
+    --accent-foreground: 0 0% 100%;
+
+    /* Tonos Muted cálidos */
+    --muted: 38 30% 90%; /* #E8DFC8 */
+    --muted-foreground: 24 8% 35%; /* #5A524C */
+
+    /* Tarjetas estilo pergamino / marfil limpio */
+    --card: 0 0% 100%;
+    --card-foreground: 24 8% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 8% 15%;
+
+    --border: 38 30% 88%; /* #E8DFC8 */
+    --input: 38 30% 88%;
+
+    --ring: 25 39% 39%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 1rem; /* Bordes suaves y redondeados */
+  }
+}
+
+/* Clases de utilidad específicas con personalización estética */
+.bg-cream {
+  background-color: #FAF7F2;
+  color: #2C2825;
+}
+
+.bg-warm-beige {
+  background-color: #E8DFC8;
+  color: #2C2825;
+}
+
+/* Fondo de contraste Grafito Cálido */
+.bg-navy-dark {
+  background-color: #2C2825;
+  color: #FAF7F2;
+}
+
+.bg-terracotta {
+  background-color: #8C5E3C;
+  color: #FFFFFF;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tipografía Cinzel para titulares */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    text-wrap: balance;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.15];
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-[1.2];
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl leading-snug;
+  }
+
+  p {
+    @apply leading-relaxed max-w-prose font-normal;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+
+  /* Estilo de Tarjeta Editorial */
+  .card-premium {
+    @apply bg-card border border-border/80 rounded-2xl transition-all duration-300 hover:border-accent/40 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Botones con estilo distintivo */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.99] transition-all duration-200 rounded-xl px-8 py-3.5 font-medium tracking-wider text-xs uppercase inline-flex items-center justify-center shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 active:scale-[0.99] transition-all duration-200 rounded-xl px-8 py-3.5 font-medium tracking-wider text-xs uppercase inline-flex items-center justify-center shadow-sm;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.99] transition-all duration-200 rounded-xl px-8 py-3.5 font-medium tracking-wider text-xs uppercase inline-flex items-center justify-center;
+  }
+}
