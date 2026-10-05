@@ -3,7 +3,7 @@ backend:
   repo: YuliCenteno/Estudio-Delta-Iuris
   branch: main
   base_url: https://silly-kleicha-bf6d69.netlify.app
-  auth_endpoint: /.netlify/functions/auth
+  auth_endpoint: /auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
