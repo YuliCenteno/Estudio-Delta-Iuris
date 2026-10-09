@@ -1,137 +1,80 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Scale, MapPin, Phone, Mail, Instagram, MessageCircle } from 'lucide-react';
+import { Github, MapPin, MessageCircle, Scale } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { siteConfig } from '@/lib/siteConfig';
 
 function Footer() {
+  const whatsappUrl = `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent('Hola Dra. Adriana, quisiera realizar una consulta.')}`;
+  const handleWhatsApp = () => window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
   return (
-    <footer className="bg-[#FAF7F2] pt-20 pb-8 border-t border-[#E8DFC8] text-[#2C2825]">
+    <footer className="border-t border-[#E5E1D9] bg-white py-12 text-[#252422]">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          
-          {/* Columna 1: Marca y descripción */}
-          <div className="lg:col-span-4 flex flex-col">
-            <div className="flex items-center gap-3.5 mb-6">
-              <div className="w-12 h-12 bg-[#8C5E3C] rounded-2xl flex items-center justify-center text-white shadow-sm">
-                <Scale className="w-6 h-6" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold text-[#2C2825] leading-none">Delta Iuris</span>
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase mt-1 text-[#8C5E3C]">
-                  Centro de Mediación Privada
-                </span>
+        <div className="grid gap-10 md:grid-cols-3">
+          <div>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#252422] text-white">
+                <Scale className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-serif text-lg font-semibold">{siteConfig.name}</p>
+                <p className="text-xs text-[#716B64]">{siteConfig.subtitle}</p>
               </div>
             </div>
-
-            <p className="text-[#5A524C] leading-relaxed mb-8 max-w-sm font-light text-sm">
-              Resolución pacífica, ágil y confidencial de conflictos familiares, patrimoniales y societarios en la provincia de Salta.
+            <p className="max-w-sm text-sm leading-relaxed text-[#5D5954]">
+              Asesoramiento jurídico independiente en Formosa y CABA.
             </p>
+          </div>
 
-            <div className="flex items-center gap-3 mt-auto">
-              <a 
-                href="https://wa.me/5493875986192" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="WhatsApp" 
-                className="w-10 h-10 rounded-xl bg-white border border-[#E8DFC8] flex items-center justify-center text-[#2C2825] hover:bg-[#8C5E3C] hover:text-white hover:border-[#8C5E3C] transition-all shadow-sm"
+          <div>
+            <h2 className="mb-4 font-serif text-lg font-semibold">Contacto y ubicación</h2>
+            <div className="space-y-3 text-sm text-[#5D5954]">
+              <p className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#756E64]" />{siteConfig.address}</p>
+              <p>Atención en Formosa y CABA</p>
+              <Button
+                onClick={handleWhatsApp}
+                size="lg"
+                className="mt-4 bg-[#25D366] text-white hover:bg-[#20BA5A] transition-all duration-200 active:scale-[0.98]"
               >
-                <MessageCircle className="w-4 h-4" />
-              </a>
-              <a 
-                href="https://www.instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="Instagram" 
-                className="w-10 h-10 rounded-xl bg-white border border-[#E8DFC8] flex items-center justify-center text-[#2C2825] hover:bg-[#8C5E3C] hover:text-white hover:border-[#8C5E3C] transition-all shadow-sm"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
+                <svg
+                  className="w-5 h-5 mr-2 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.71 1.455h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.163-3.486-8.411" />
+                </svg>
+                Contactar por WhatsApp
+              </Button>
             </div>
           </div>
 
-          {/* Columna 2: Información de Contacto */}
-          <div className="lg:col-span-4">
-            <h4 className="text-lg font-serif font-semibold text-[#2C2825] mb-6">
-              Contacto y Ubicación
-            </h4>
-            <ul className="space-y-5 text-[#5A524C] text-sm">
-              <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-[#E8DFC8] flex items-center justify-center shrink-0 mt-0.5 text-[#8C5E3C]">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="leading-relaxed">
-                  Salta Capital, Salta, Argentina
-                </span>
-              </li>
-
-              <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-[#E8DFC8] flex items-center justify-center shrink-0 mt-0.5 text-[#8C5E3C]">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <a 
-                    href="https://wa.me/5493875986192" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-[#8C5E3C] transition-colors"
-                  >
-                    +54 9 387 598-6192
-                  </a>
-                </div>
-              </li>
-
-              <li className="flex items-center gap-3.5">
-                <div className="w-8 h-8 rounded-lg bg-white border border-[#E8DFC8] flex items-center justify-center shrink-0 text-[#8C5E3C]">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <a 
-                  href="mailto:contacto@deltaiuris.com.ar" 
-                  className="hover:text-[#8C5E3C] transition-colors"
-                >
-                  contacto@deltaiuris.com.ar
-                </a>
-              </li>
-            </ul>
+          <div>
+            <h2 className="mb-4 font-serif text-lg font-semibold">Información</h2>
+            <nav className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm text-[#5D5954]" aria-label="Navegación del pie">
+              <Link to="/nosotros" className="hover:text-[#252422]">Perfil</Link>
+              <Link to="/areas" className="hover:text-[#252422]">Áreas de práctica</Link>
+              <Link to="/servicios" className="hover:text-[#252422]">Servicios</Link>
+              <Link to="/faq" className="hover:text-[#252422]">Preguntas frecuentes</Link>
+              <Link to="/articulos" className="hover:text-[#252422]">Artículos</Link>
+              <Link to="/contacto" className="hover:text-[#252422]">Contacto</Link>
+            </nav>
           </div>
-
-          {/* Columna 3: Navegación Principal */}
-          <div className="lg:col-span-2">
-            <h4 className="text-lg font-serif font-semibold text-[#2C2825] mb-6">
-              Navegación
-            </h4>
-            <ul className="space-y-3.5 text-sm">
-              <li><Link to="/nosotros" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Nosotros</Link></li>
-              <li><Link to="/servicios" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Servicios</Link></li>
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Áreas de Actuación</Link></li>
-              <li><Link to="/beneficios" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Beneficios</Link></li>
-              <li><Link to="/faq" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Preguntas Frecuentes</Link></li>
-              <li><Link to="/contacto" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Contacto</Link></li>
-            </ul>
-          </div>
-
-          {/* Columna 4: Áreas de Especialización */}
-          <div className="lg:col-span-2">
-            <h4 className="text-lg font-serif font-semibold text-[#2C2825] mb-6">
-              Especialidades
-            </h4>
-            <ul className="space-y-3.5 text-sm">
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Mediación Familiar</Link></li>
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Mediación Patrimonial</Link></li>
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Mediación Empresarial</Link></li>
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Propiedad Horizontal</Link></li>
-              <li><Link to="/areas" className="text-[#5A524C] hover:text-[#8C5E3C] transition-colors">Derecho de Familia</Link></li>
-            </ul>
-          </div>
-
         </div>
 
-        {/* Pie Inferior */}
-        <div className="pt-8 border-t border-[#E8DFC8] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#5A524C]">
-            &copy; {new Date().getFullYear()} Delta Iuris - Centro de Mediación Privada. Todos los derechos reservados.
-          </p>
-          <p className="text-xs text-[#5A524C]/80">
-            Dra. Ana Lo Giúdice &mdash; Salta, Argentina
-          </p>
+        <div className="mt-10 flex flex-col gap-2 border-t border-[#E5E1D9] pt-6 text-xs text-[#716B64] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.</p>
+          <p>Abogada profesional independiente</p>
+          <a
+            href="https://github.com/yulicenteno"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 hover:text-[#252422]"
+          >
+            <Github className="h-3.5 w-3.5" />
+            Desarrollado por ZCS Systems
+          </a>
         </div>
       </div>
     </footer>

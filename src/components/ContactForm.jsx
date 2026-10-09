@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { Loader2 } from 'lucide-react';
+import { siteConfig } from '@/lib/siteConfig';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -22,19 +22,15 @@ function ContactForm() {
     area_interes: '',
     mensaje: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
   const areas = [
-    "Derecho Administrativo",
-    "Derecho Ambiental",
-    "Derecho de la Construcción",
-    "Derecho Minero",
-    "Derecho Urbanístico",
-    "Derecho Migratorio y Extranjería",
-    "Ciudadanías",
-    "Derecho del Inversor e Inversiones",
-    "Derecho Aduanero"
+    "Derecho de Familia",
+    "Derecho Laboral y ART",
+    "Contratos",
+    "Derecho a la Salud",
+    "Defensa del Consumidor y tarjetas de crédito",
+    "Procuración y gestorías en CABA"
   ];
 
   const validate = () => {
@@ -56,7 +52,7 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!validate()) {
@@ -64,62 +60,27 @@ function ContactForm() {
       return;
     }
 
-    setIsSubmitting(true);
-
     try {
-      const payload = {
-        nombre: formData.nombre,
-        empresa: formData.empresa,
-        email: formData.email,
-        telefono: formData.telefono,
-        area_interes: formData.area_interes,
-        asunto: `Consulta web: ${formData.area_interes}`,
-        mensaje: formData.mensaje
-      };
+      const message = [
+        'Hola Dra. Adriana, quisiera realizar una consulta.',
+        `Nombre: ${formData.nombre}`,
+        formData.empresa ? `Empresa: ${formData.empresa}` : '',
+        `Correo: ${formData.email}`,
+        `Teléfono: ${formData.telefono}`,
+        `Área de consulta: ${formData.area_interes}`,
+        `Mensaje: ${formData.mensaje}`
+      ].filter(Boolean).join('\n');
+      const whatsappUrl = `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(message)}`;
+      const whatsappWindow = window.open(whatsappUrl, '_blank');
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "649f57eb-0cfe-4123-a8f6-a44424307a37",
-
-          subject: `Nueva consulta desde estudiocasanegra.com`,
-
-          from_name: formData.nombre,
-
-          nombre: formData.nombre,
-          empresa: formData.empresa,
-          email: formData.email,
-          telefono: formData.telefono,
-          area_interes: formData.area_interes,
-          mensaje: formData.mensaje
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message);
+      if (whatsappWindow) {
+        whatsappWindow.opener = null;
+      } else {
+        window.location.assign(whatsappUrl);
       }
-      
-      toast.success('Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.');
-      
-      setFormData({
-        nombre: '',
-        empresa: '',
-        email: '',
-        telefono: '',
-        area_interes: '',
-        mensaje: ''
-      });
     } catch (error) {
-      console.error('Error al enviar consulta:', error);
-      toast.error('Ocurrió un error al enviar su consulta. Por favor, intente nuevamente o contáctenos por teléfono.');
-    } finally {
-      setIsSubmitting(false);
+      console.error('Error al preparar la consulta de WhatsApp:', error);
+      toast.error('No se pudo abrir WhatsApp. Puede contactarse al ' + siteConfig.phone + '.');
     }
   };
 
@@ -154,7 +115,7 @@ function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-foreground">Correo electronico *</Label>
+          <Label htmlFor="email" className="text-foreground">Correo electrónico *</Label>
           <Input
             id="email"
             type="email"
@@ -167,7 +128,7 @@ function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="telefono" className="text-foreground">Telefono de contacto *</Label>
+          <Label htmlFor="telefono" className="text-foreground">Teléfono de contacto *</Label>
           <Input
             id="telefono"
             type="tel"
@@ -181,7 +142,7 @@ function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="area_interes" className="text-foreground">Area de Practica *</Label>
+        <Label htmlFor="area_interes" className="text-foreground">Área de práctica *</Label>
         <Select value={formData.area_interes} onValueChange={(value) => handleChange('area_interes', value)}>
           <SelectTrigger className={`bg-background border-border focus:ring-primary ${errors.area_interes ? 'border-destructive' : ''}`}>
             <SelectValue placeholder="Seleccione el área de su interés" />
@@ -209,17 +170,9 @@ function ContactForm() {
 
       <Button
         type="submit"
-        disabled={isSubmitting}
         className="w-full md:w-auto btn-primary px-10"
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Enviando...
-          </>
-        ) : (
-          'Enviar Consulta'
-        )}
+        Continuar por WhatsApp
       </Button>
     </form>
   );

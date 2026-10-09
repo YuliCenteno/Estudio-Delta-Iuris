@@ -15,7 +15,7 @@ function TeamMemberCard({ member, index }) {
         <div className="aspect-[3/4] lg:aspect-auto lg:h-full w-full bg-muted">
           <img 
             src={member.image} 
-            alt={`${member.name} - ${member.title} - Estudio Jurídico Casanegra & Asociados`} 
+            alt={`${member.name} - ${member.title}`}
             loading="lazy"
             className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />

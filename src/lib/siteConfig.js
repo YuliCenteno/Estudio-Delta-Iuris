@@ -1,79 +1,64 @@
 export const siteConfig = {
-  name: "Delta Iuris",
-  subtitle: "Estudio Jurídico & Centro de Mediación",
-  lawyer: "Dra. Ana Lo Giúdice",
-  titles: [
-    "Abogada & Mediadora Privada",
-    "Especialista en Mediación Familiar y Patrimonial",
-    "Especialista en Negociación",
-    "Profesora Universitaria en Ciencias Jurídicas"
-  ],
-  location: "Salta, Argentina",
-  city: "Ciudad de Salta",
-  phone: "387 598-6192",
-  phoneRaw: "5493875986192", // Formato para API de WhatsApp
-  email: "contacto@deltaiuris.com.ar",
-  modality: "Atención Presencial y Virtual (Con turno previo)",
+  name: "Dra. Adriana Elena Aranda",
+  subtitle: "Abogada independiente",
+  lawyer: "Dra. Adriana Elena Aranda",
+  location: "Formosa y CABA",
+  city: "Ciudad Autónoma de Buenos Aires",
+  address: "Av. Almirante Brown 653, CABA",
+  phone: "+54 9 11 2401-0927",
+  phoneRaw: "5491124010927",
+  modality: "Atención en Formosa y CABA",
   hero: {
-    title: "Resolución Efectiva y Humana de Conflictos Jurídicos",
-    description: "Espacio especializado en mediación privada y asesoramiento legal integral en la Ciudad de Salta, liderado por la Dra. Ana Lo Giúdice.",
-    primaryCTA: "Solicitar Consulta / Turno",
-    secondaryCTA: "Ver Áreas de Práctica"
+    title: "Asesoramiento jurídico con atención profesional y cercana",
+    description: "La Dra. Adriana Elena Aranda brinda asesoramiento y representación legal en Formosa y CABA, con práctica en distintas áreas del derecho.",
+    primaryCTA: "Realizar una consulta",
+    secondaryCTA: "Conocer las áreas de práctica"
   },
   about: {
-    title: "Sobre la Dra. Ana Lo Giúdice",
-    bio: "Delta Iuris es un estudio jurídico y centro de mediación enfocado en brindar soluciones eficientes, pacíficas y jurídicamente sólidas. A través de la mediación y la negociación, buscamos resolver disputas evitando el desgaste emocional y financiero de procesos judiciales prolongados, manteniendo siempre la excelencia profesional y la empatía.",
+    title: "Dra. Adriana Elena Aranda",
+    bio: "Abogada profesional independiente con atención en Formosa y CABA. Asesoramiento jurídico en derecho de familia, laboral, contratos, salud y defensa del consumidor.",
     badges: [
-      "Abogada y Mediadora",
-      "Mediación Familiar y Patrimonial",
-      "Negociación Avanzada",
-      "Docente Universitaria"
+      "Atención profesional independiente",
+      "Formosa y CABA",
+      "Consultas por WhatsApp"
     ]
   },
   services: [
     {
-      id: "mediacion-familiar",
-      title: "Mediación Familiar",
-      description: "Acuerdos equilibrados en divorcios, alimentos, régimen de comunicación y cuidado personal prioritario de menores.",
+      id: "familia",
+      title: "Derecho de Familia",
+      description: "Sucesiones, divorcios, alimentos, impugnaciones y filiaciones.",
       icon: "Users"
     },
     {
-      id: "mediacion-patrimonial",
-      title: "Mediación Patrimonial y Empresarial",
-      description: "Solución alternativa de controversias comerciales, contratos, disolución de sociedades y disputas entre socios.",
+      id: "laboral",
+      title: "Derecho Laboral y ART",
+      description: "Asesoramiento en asuntos laborales, accidentes de trabajo y despidos.",
       icon: "Briefcase"
     },
     {
-      id: "mediacion-vecinal-educativa",
-      title: "Mediación Vecinal y Educativa",
-      description: "Gestión pacífica de conflictos de convivencia, propiedad horizontal y del ámbito educativo.",
-      icon: "ShieldCheck"
-    },
-    {
-      id: "derecho-familia",
-      title: "Derecho de Familia",
-      description: "Asesoramiento legal integral en homologación de convenios, sucesiones y reorganización familiar.",
+      id: "contratos",
+      title: "Contratos",
+      description: "Contratos para empresas y de prestación de servicios profesionales, rescisión, cláusulas anexas y contratos de locación.",
       icon: "FileText"
     },
     {
-      id: "negociacion",
-      title: "Negociación Estratégica",
-      description: "Asistencia profesional para la prevención de juicios y resolución alternativa y rápida de controversias.",
-      icon: "Handshake"
-    }
-  ],
-  benefits: [
-    {
-      title: "Confidencialidad",
-      desc: "Garantía de privacidad absoluta en todas las audiencias y reuniones."
+      id: "salud",
+      title: "Derecho a la Salud",
+      description: "Amparos de salud en el fuero federal.",
+      icon: "HeartPulse"
     },
     {
-      title: "Celeridad y Menor Costo",
-      desc: "Resolución de conflictos en menor tiempo comparado con la vía judicial tradicional."
+      id: "consumidor",
+      title: "Defensa del Consumidor",
+      description: "Asesoramiento en defensa del consumidor y cuestiones vinculadas con tarjetas de crédito.",
+      icon: "ShieldCheck"
     },
     {
-      title: "Modalidad Flexible",
-      desc: "Atención adaptada a tus necesidades: presencial en Salta Capital o virtual desde cualquier punto."
+      id: "procuracion",
+      title: "Procuración y Gestorías",
+      description: "Servicio de procuración y gestorías en CABA.",
+      icon: "MapPin"
     }
   ]
 };

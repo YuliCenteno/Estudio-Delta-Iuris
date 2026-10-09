@@ -22,11 +22,10 @@ function Header() {
   }, [location.pathname, location.hash]);
 
   const navLinks = [
-    { path: '/', label: 'Home' },
+    { path: '/', label: 'Inicio' },
     { path: '/nosotros', label: 'Nosotros' },
     { path: '/areas', label: 'Áreas de Práctica' },
     { path: '/faq', label: 'Preguntas Frecuentes' },
-    { path: '/articulos', label: 'Artículos' },
     { path: '/contacto', label: 'Contacto' }
   ];
 
@@ -45,8 +44,8 @@ function Header() {
               <Scale className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <span className={`text-xl md:text-2xl font-serif leading-none transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-primary'}`}>DELTA IURIS</span>
-              <span className={`text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase mt-1 transition-colors duration-300 ${isScrolled ? 'text-muted-foreground' : 'text-primary/70'}`}>Estudio Jurídico</span>
+              <span className="text-lg md:text-xl font-serif leading-none text-primary">DRA. ADRIANA ELENA ARANDA</span>
+              <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase mt-1 text-muted-foreground">Abogada independiente</span>
             </div>
           </Link>
 
@@ -81,7 +80,7 @@ function Header() {
             size="icon"
             className="xl:hidden z-50 relative text-primary hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>

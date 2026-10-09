@@ -6,37 +6,32 @@
 
 @layer base {
   :root {
-    /* Fondo Warm Cream (Lino / Marfil elegante) */
-    --background: 38 33% 96%; /* #FAF7F2 */
-    --foreground: 24 8% 15%; /* #2C2825 - Grafito Cálido */
+    /* Neutros cálidos: blanco, beige suave y negro */
+    --background: 40 23% 97%;
+    --foreground: 30 5% 14%;
 
-    /* Grafito oscuro como primario */
-    --primary: 24 8% 15%; /* #2C2825 */
-    --primary-foreground: 38 33% 96%;
+    --primary: 30 5% 14%;
+    --primary-foreground: 40 23% 97%;
 
-    /* Marrón/Café como tono secundario */
-    --secondary: 25 39% 39%; /* #8C5E3C */
+    --secondary: 36 8% 48%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Acento Cobre / Café Cálido */
-    --accent: 25 39% 39%; /* #8C5E3C */
+    --accent: 36 8% 48%;
     --accent-foreground: 0 0% 100%;
 
-    /* Tonos Muted cálidos */
-    --muted: 38 30% 90%; /* #E8DFC8 */
-    --muted-foreground: 24 8% 35%; /* #5A524C */
+    --muted: 38 13% 92%;
+    --muted-foreground: 30 4% 39%;
 
-    /* Tarjetas estilo pergamino / marfil limpio */
     --card: 0 0% 100%;
-    --card-foreground: 24 8% 15%;
+    --card-foreground: 30 5% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 24 8% 15%;
+    --popover-foreground: 30 5% 14%;
 
-    --border: 38 30% 88%; /* #E8DFC8 */
-    --input: 38 30% 88%;
+    --border: 36 11% 87%;
+    --input: 36 11% 87%;
 
-    --ring: 25 39% 39%;
+    --ring: 36 8% 48%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
@@ -45,25 +40,23 @@
   }
 }
 
-/* Clases de utilidad específicas con personalización estética */
 .bg-cream {
-  background-color: #FAF7F2;
-  color: #2C2825;
+  background-color: #F8F7F4;
+  color: #252422;
 }
 
 .bg-warm-beige {
-  background-color: #E8DFC8;
-  color: #2C2825;
+  background-color: #E9E6DF;
+  color: #252422;
 }
 
-/* Fondo de contraste Grafito Cálido */
 .bg-navy-dark {
-  background-color: #2C2825;
-  color: #FAF7F2;
+  background-color: #252422;
+  color: #F8F7F4;
 }
 
 .bg-terracotta {
-  background-color: #8C5E3C;
+  background-color: #756E64;
   color: #FFFFFF;
 }
 

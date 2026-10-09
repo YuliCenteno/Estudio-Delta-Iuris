@@ -41,7 +41,6 @@ function App() {
         <Route path="/areas" element={<AreasPage />} />
         <Route path="/beneficios" element={<BeneficiosPage />} />
         <Route path="/faq" element={<FAQPage />} />
-        <Route path="/articulos" element={<ArticulosPage />} />
         <Route path="/contacto" element={<ContactoPage />} />
 
         {/* Ruta de fallback (Redirección a Home para rutas no coincidentes) */}
